@@ -27,7 +27,7 @@
     --glass-border-glow: 1px solid rgba(6, 182, 212, 0.45);
     --glass-blur: blur(18px) saturate(190%);
     --glass-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.42), 0 0 1px 1px rgba(255, 255, 255, 0.08) inset;
-    
+
     /* Layout & Spacing */
     --nav-height: 80px;
     --radius-sm: 8px;
@@ -52,7 +52,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: url('aurora image .jpeg') no-repeat center center fixed;
+    background: url('download.png') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-primary);
     line-height: 1.6;
@@ -77,20 +77,28 @@ body {
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: rgba(13, 19, 36, 0.8);
 }
+
 ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.25);
     border-radius: 5px;
     border: 2px solid rgba(13, 19, 36, 0.8);
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--aurora-cyan);
 }
 
 /* Base Headings & Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     color: var(--text-primary);
     line-height: 1.2;
@@ -519,9 +527,20 @@ a {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.7; }
-    50% { transform: scale(1.3); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.7; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
 }
 
 .input-group {
@@ -1306,11 +1325,26 @@ section {
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-    .hero h1 { font-size: 3rem; }
-    .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-grid, .course-grid { grid-template-columns: repeat(2, 1fr); }
-    .campus-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-container { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid,
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .campus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1328,27 +1362,58 @@ section {
         transition: var(--transition-smooth);
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
-    
+
     .nav-links.mobile-open {
         transform: translateY(0);
     }
 
-    .mobile-toggle { display: block; }
-    
-    .hero h1 { font-size: 2.2rem; }
-    .hero-subtext { font-size: 1rem; }
-    .hero-glass-card { padding: 40px 25px; }
+    .mobile-toggle {
+        display: block;
+    }
 
-    .about-grid, .course-grid, .campus-grid, .contact-grid {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtext {
+        font-size: 1rem;
+    }
+
+    .hero-glass-card {
+        padding: 40px 25px;
+    }
+
+    .about-grid,
+    .course-grid,
+    .campus-grid,
+    .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    .form-row { grid-template-columns: 1fr; }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 
-    .timeline-line { left: 20px; }
-    .timeline-item { width: 100%; padding-left: 50px !important; }
-    .timeline-item.right { left: 0; }
+    .timeline-line {
+        left: 20px;
+    }
 
-    .footer-container { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px !important;
+    }
+
+    .timeline-item.right {
+        left: 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }

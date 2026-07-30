@@ -14,16 +14,16 @@
     --aurora-glow: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #f472b6 100%);
     
     /* Invisible Glass Surface Variables */
-    --glass-bg: rgba(15, 23, 42, 0.42);
+    --glass-bg: rgba(11, 16, 32, 0.32);
     --glass-border: 1px solid rgba(255, 255, 255, 0.28);
-    --glass-border-hover: 1px solid rgba(255, 255, 255, 0.5);
-    --glass-blur: blur(16px) saturate(190%);
-    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    --glass-border-hover: 1px solid rgba(255, 255, 255, 0.55);
+    --glass-blur: blur(16px) saturate(200%);
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.35);
 
     /* Text Colors */
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.88);
-    --text-muted: rgba(255, 255, 255, 0.65);
+    --text-secondary: rgba(255, 255, 255, 0.9);
+    --text-muted: rgba(255, 255, 255, 0.7);
 
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -46,8 +46,8 @@ html, body {
 
 body {
     font-family: var(--font-body);
-    /* Exact Background Image Preserved and Fully Visible */
-    background: url('aurora image .jpeg') no-repeat center center fixed;
+    /* Background Image URL Encoded for Spaces and Crisp Full Display */
+    background: url('aurora%20image%20.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-primary);
     line-height: 1.5;
@@ -57,14 +57,14 @@ body {
     flex-direction: column;
 }
 
-/* Subtle Transparent Background Tint to ensure Image is Completely Visible */
+/* Minimal Light Overlay so the Background Image is 100% Vibrant & Visible */
 .bg-tint {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle at 70% 30%, rgba(15, 23, 42, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
+    background: rgba(0, 0, 0, 0.15);
     pointer-events: none;
     z-index: 0;
 }
@@ -98,10 +98,10 @@ a {
     padding: 0 40px;
     display: flex;
     align-items: center;
-    background: rgba(15, 23, 42, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(11, 16, 32, 0.22);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .nav-container {
@@ -161,7 +161,7 @@ a {
 
 .btn-external {
     background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     color: white;
     padding: 8px 18px;
     border-radius: var(--radius-full);
@@ -213,15 +213,15 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(6, 182, 212, 0.18);
-    border: 1px solid rgba(6, 182, 212, 0.45);
+    background: rgba(6, 182, 212, 0.22);
+    border: 1px solid rgba(6, 182, 212, 0.5);
     color: #e0f2fe;
     padding: 6px 16px;
     border-radius: var(--radius-full);
     font-size: 0.88rem;
     font-weight: 600;
     margin-bottom: 25px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
 }
 
 .pulse-dot {
@@ -245,7 +245,7 @@ a {
     line-height: 1.15;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
 }
 
 .hero-subtext {
@@ -253,7 +253,7 @@ a {
     color: var(--text-secondary);
     max-width: 580px;
     margin-bottom: 35px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
 /* Highlights Grid */
@@ -267,10 +267,10 @@ a {
 }
 
 .highlight-item {
-    background: rgba(15, 23, 42, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(11, 16, 32, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-radius: var(--radius-md);
     padding: 14px 20px;
     display: flex;
@@ -280,8 +280,8 @@ a {
 }
 
 .highlight-item:hover {
-    background: rgba(15, 23, 42, 0.55);
-    border-color: rgba(6, 182, 212, 0.5);
+    background: rgba(11, 16, 32, 0.45);
+    border-color: rgba(6, 182, 212, 0.55);
     transform: translateX(5px);
 }
 
@@ -289,7 +289,7 @@ a {
     width: 44px;
     height: 44px;
     background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(99, 102, 241, 0.3));
-    border: 1px solid rgba(6, 182, 212, 0.4);
+    border: 1px solid rgba(6, 182, 212, 0.45);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -348,7 +348,7 @@ a {
 
 .invisible-glass-card:hover {
     border: var(--glass-border-hover);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .card-header {
@@ -380,12 +380,12 @@ a {
 /* Role Switch Tabs */
 .login-tabs {
     display: flex;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.3);
     padding: 5px;
     border-radius: var(--radius-md);
     gap: 5px;
     margin-bottom: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .tab-btn {
@@ -419,8 +419,8 @@ a {
 }
 
 .form-badge {
-    background: rgba(6, 182, 212, 0.15);
-    border: 1px solid rgba(6, 182, 212, 0.35);
+    background: rgba(6, 182, 212, 0.18);
+    border: 1px solid rgba(6, 182, 212, 0.4);
     color: #e0f2fe;
     padding: 6px 14px;
     border-radius: var(--radius-sm);
@@ -466,8 +466,8 @@ a {
 
 .input-wrapper input {
     width: 100%;
-    background: rgba(255, 255, 255, 0.09);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
     padding: 12px 16px;
     padding-right: 45px;
@@ -480,12 +480,12 @@ a {
 
 .input-wrapper input:focus {
     border-color: var(--aurora-cyan);
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.18);
     box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
 }
 
 .input-wrapper input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .input-icon,
@@ -570,7 +570,7 @@ a {
 .divider::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .divider span {
@@ -584,8 +584,8 @@ a {
 
 .btn-sso {
     flex: 1;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     color: white;
     padding: 10px;
     border-radius: var(--radius-md);
@@ -600,8 +600,8 @@ a {
 }
 
 .btn-sso:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 /* ==========================================================================
@@ -613,10 +613,10 @@ a {
     width: 100%;
     padding: 15px 40px;
     text-align: center;
-    background: rgba(15, 23, 42, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(11, 16, 32, 0.25);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     font-size: 0.85rem;
     color: var(--text-muted);
 }

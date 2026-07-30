@@ -8,114 +8,134 @@
   
   body {
     font-family: var(--font-jakarta);
+    background-color: #030712;
+    color: #f8fafc;
   }
 }
 
-/* Glassmorphism Luxury Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+/* VisionOS & Liquid Glass Utilities */
+.glass-panel-vision {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 
-    0 30px 60px -12px rgba(0, 0, 0, 0.55),
-    0 18px 36px -18px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+    0 30px 80px -15px rgba(0, 0, 0, 0.65),
+    0 0 50px rgba(255, 255, 255, 0.04),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.02);
 }
 
-.glass-card-subtle {
+.glass-card-vision {
   background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-vision:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(165, 180, 252, 0.35);
+  box-shadow: 
+    0 25px 50px -10px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(99, 102, 241, 0.2),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Input VisionOS Style */
+.glass-input-vision {
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.3);
-}
-
-.glass-input {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-input:focus-within, .glass-input:focus {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+.glass-input-vision:focus-within, .glass-input-vision:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 
+    0 0 25px rgba(99, 102, 241, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Glass Shine Animation */
-@keyframes shine {
+/* Glass Pill Badge */
+.glass-pill-vision {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.glass-pill-vision:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(129, 140, 248, 0.4);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+/* Glass Light Sweep Animation */
+@keyframes lightSweep {
   0% {
-    transform: translateX(-100%) rotate(25deg);
+    transform: translateX(-120%) rotate(25deg);
   }
   100% {
-    transform: translateX(200%) rotate(25deg);
+    transform: translateX(250%) rotate(25deg);
   }
 }
 
-.animate-shine {
-  animation: shine 4s infinite linear;
+.animate-light-sweep {
+  animation: lightSweep 4.5s infinite ease-in-out;
 }
 
-/* Floating Animation */
-@keyframes floatSlow {
+/* Floating Motion */
+@keyframes floatVisionSlow {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px) rotate(0.5deg);
+    transform: translateY(-14px) rotate(0.8deg);
   }
 }
 
-@keyframes floatMedium {
+@keyframes floatVisionMedium {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-9px);
   }
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.08);
-  }
+.animate-float-vision-slow {
+  animation: floatVisionSlow 7s ease-in-out infinite;
 }
 
-.animate-float-slow {
-  animation: floatSlow 8s ease-in-out infinite;
+.animate-float-vision-medium {
+  animation: floatVisionMedium 5s ease-in-out infinite;
 }
 
-.animate-float-medium {
-  animation: floatMedium 5s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 6s ease-in-out infinite;
+/* SVG Noise Texture Overlay */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(3, 7, 18, 0.9);
 }
-
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  border: 2px solid rgba(15, 23, 42, 0.8);
+  border: 2px solid rgba(3, 7, 18, 0.9);
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }

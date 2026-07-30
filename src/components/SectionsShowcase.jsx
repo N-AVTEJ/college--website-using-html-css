@@ -30,7 +30,7 @@ export default function SectionsShowcase() {
       
       {/* About Us Section */}
       <section id="about" className="relative scroll-mt-28">
-        <div className="glass-panel p-8 sm:p-12 md:p-16 rounded-[36px] relative overflow-hidden">
+        <div className="glass-panel-vision p-8 sm:p-12 md:p-16 rounded-[36px] relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-300 mb-4">
@@ -83,7 +83,7 @@ export default function SectionsShowcase() {
             <motion.div
               key={idx}
               whileHover={{ y: -5 }}
-              className="glass-card-subtle p-7 rounded-3xl border border-white/10 hover:border-indigo-400/30 transition-all duration-300"
+              className="glass-card-vision p-7 rounded-3xl border border-white/10 hover:border-indigo-400/30 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
@@ -121,7 +121,7 @@ export default function SectionsShowcase() {
                 key={idx}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ duration: 0.2 }}
-                className="group glass-card-subtle p-6 rounded-3xl border border-white/10 hover:border-indigo-400/40 hover:bg-white/[0.09] transition-all duration-300 flex flex-col justify-between"
+                className="group glass-card-vision p-6 rounded-3xl border border-white/10 hover:border-indigo-400/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -155,7 +155,7 @@ export default function SectionsShowcase() {
 
       {/* Contact Section */}
       <section id="contact" className="relative scroll-mt-28">
-        <div className="glass-panel p-8 sm:p-12 rounded-[36px] border border-white/15 overflow-hidden">
+        <div className="glass-panel-vision p-8 sm:p-12 rounded-[36px] border border-white/15 overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-300 mb-4">
@@ -175,18 +175,18 @@ export default function SectionsShowcase() {
                   href="https://aurora.edu.in/" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-sm font-semibold text-indigo-300 hover:text-white transition-all w-max"
+                  className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 text-sm font-semibold text-indigo-300 hover:text-white transition-all w-max"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Official Portal: aurora.edu.in</span>
                 </a>
 
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.05] border border-white/10 text-sm text-slate-300 w-max">
+                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 text-sm text-slate-300 w-max">
                   <Phone className="w-4 h-4 text-emerald-400" />
                   <span>Admissions Helpline: +1234567890</span>
                 </div>
 
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.05] border border-white/10 text-sm text-slate-300 w-max">
+                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 text-sm text-slate-300 w-max">
                   <MapPin className="w-4 h-4 text-cyan-400" />
                   <span>Aurora Main Campus, Innovation Way</span>
                 </div>
@@ -194,30 +194,30 @@ export default function SectionsShowcase() {
             </div>
 
             {/* Quick Contact Form */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 backdrop-blur-2xl border border-white/15">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-950/80 backdrop-blur-2xl border border-white/15">
               <h3 className="text-lg font-bold text-white mb-4">Send an Enquiry</h3>
-              <form onSubmit={(e) => { e.preventDefault(); alert("Enquiry submitted successfully! We will contact you soon."); }} className="space-y-3">
+              <form onSubmit={(e) => { e.preventDefault(); alert("Enquiry submitted! Admissions counselor will respond shortly."); }} className="space-y-3">
                 <input
                   type="text"
                   required
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input outline-none"
+                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input-vision outline-none"
                 />
                 <input
                   type="email"
                   required
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input outline-none"
+                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input-vision outline-none"
                 />
                 <textarea
                   rows="3"
                   required
                   placeholder="Your Enquiry Message"
-                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input outline-none resize-none"
+                  className="w-full px-4 py-3 text-sm text-white rounded-xl glass-input-vision outline-none resize-none"
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full py-3 text-sm font-bold text-white rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 hover:shadow-lg hover:shadow-indigo-500/40 transition-all active:scale-98"
+                  className="w-full py-3 text-sm font-bold text-white rounded-full bg-gradient-to-r from-indigo-600 to-cyan-500 hover:shadow-lg hover:shadow-indigo-500/40 transition-all active:scale-98"
                 >
                   Submit Enquiry
                 </button>

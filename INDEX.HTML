@@ -3,77 +3,644 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora University</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Aurora University | Excellence in Higher Education & Research</title>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Background Blur Overlay -->
+    <div class="bg-overlay"></div>
+
     <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <div class="logo">Aurora University</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#history">History</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header class="glass-header">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="logo-text">Aurora <span class="logo-accent">University</span></span>
+            </a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="#history"><i class="fa-solid fa-timeline"></i> History</a></li>
+                <li><a href="#courses"><i class="fa-solid fa-book-open"></i> Courses</a></li>
+                <li><a href="#campus"><i class="fa-solid fa-building-columns"></i> Campus Life</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <div class="header-actions">
+                <button class="btn-login-trigger" id="open-login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Portal Login</span>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
-    
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to Aurora University</h1>
-        <p>Your future starts here. Join us today!</p>
-        <a href="#courses" class="btn">Explore Courses</a>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Learn more about our University, history, and mission.</p>
-    </section>
-
-    <!-- History Section -->
-    <section id="history" class="history">
-        <h2>History of Aurora University</h2>
-        <p>Aurora University  was established with a vision to provide quality education and foster innovation in various fields of study.</p>
-        <ul>
-            <li><strong>Foundation Year:</strong> Aurora College was founded to cater to the growing demand for technical and professional education.</li>
-            <li><strong>Expansion:</strong> Over the years, new departments and courses were introduced, covering fields like Engineering, Sciences, Management, and Fine Arts.</li>
-            <li><strong>Research & Innovation:</strong> The college became a hub for cutting-edge research, attracting students and faculty from across the country.</li>
-            <li><strong>Global Recognition:</strong> With strategic collaborations and industry tie-ups, Aurora College has gained recognition as a center of higher learning and skill development.</li>
-        </ul>
-    </section>
-
-    <!-- Courses Section -->
-    <section id="courses" class="courses">
-        <h2>Our Courses</h2>
-        <div class="course-grid">
-            <div class="course-card"> <h3>Engineering</h3> <p>B.Tech CSE, AIML, DS, FSD, Cyber Security</p> </div>
-            <div class="course-card"> <h3>Sciences</h3> <p>B.Sc AIML, B.Sc Computer Science</p> </div>
-            <div class="course-card"> <h3>Commerce</h3> <p>B.Com Banking & Taxation</p> </div>
-            <div class="course-card"> <h3>Finance</h3> <p>B.Fin Fintech</p> </div>
-            <div class="course-card"> <h3>Management</h3> <p>BBA Business Analytics</p> </div>
-            <div class="course-card"> <h3>Informatics</h3> <p>BCA Data Science</p> </div>
-            <div class="course-card"> <h3>Fine Arts</h3> <p>BFA Gaming Technology, Fashion Design, Animation</p> </div>
-            <div class="course-card"> <h3>Architecture</h3> <p>B.Arch</p> </div>
+    <!-- Side Login Drawer & Overlay -->
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="glass-drawer" id="login-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Aurora Portal</h3>
+            </div>
+            <button class="drawer-close" id="close-login-btn" aria-label="Close drawer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p ><a href="https://aurora.edu.in/"></a></p>
-        <p>Phone: +1234567890</p>
-    </section>
+        <!-- Login Role Tabs -->
+        <div class="login-tabs">
+            <button class="tab-btn active" data-tab="student">
+                <i class="fa-solid fa-user-graduate"></i> Student
+            </button>
+            <button class="tab-btn" data-tab="faculty">
+                <i class="fa-solid fa-chalkboard-user"></i> Faculty
+            </button>
+            <button class="tab-btn" data-tab="applicant">
+                <i class="fa-solid fa-id-card"></i> Applicant
+            </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="glass-login-form" id="login-form" onsubmit="event.preventDefault(); alert('Login attempt submitted successfully!');">
+            <div class="form-badge" id="role-badge">
+                <span class="pulse-dot"></span> Active Session: Student Portal
+            </div>
+
+            <div class="input-group">
+                <label for="user-id"><i class="fa-solid fa-envelope"></i> Email / Registration No.</label>
+                <div class="input-wrapper">
+                    <input type="text" id="user-id" placeholder="e.g. AU202500891" required>
+                    <i class="fa-solid fa-user input-icon"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="user-password"><i class="fa-solid fa-key"></i> Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="user-password" placeholder="••••••••••••" required>
+                    <button type="button" class="toggle-password" id="toggle-pw-btn" aria-label="Toggle password">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-container">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    Remember me
+                </label>
+                <a href="#" class="forgot-link" onclick="alert('Password reset link sent to your registered email.')">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary btn-block">
+                <span>Sign In to Dashboard</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="divider">
+                <span>OR SIGN IN WITH</span>
+            </div>
+
+            <div class="sso-buttons">
+                <button type="button" class="btn-sso" onclick="alert('Redirecting to Google SSO...')">
+                    <i class="fa-brands fa-google"></i> Google Workspace
+                </button>
+                <button type="button" class="btn-sso" onclick="alert('Redirecting to Microsoft SSO...')">
+                    <i class="fa-brands fa-microsoft"></i> Microsoft 365
+                </button>
+            </div>
+
+            <div class="drawer-footer-text">
+                <p><i class="fa-solid fa-lock"></i> 256-Bit SSL Encrypted Campus Network</p>
+                <p>Need support? <a href="#contact" onclick="closeDrawer()">Contact IT Desk</a></p>
+            </div>
+        </form>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-glass-card">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Admissions Open for Academic Year 2025–26</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <h1>Welcome to <span class="glow-text">Aurora University</span></h1>
+                <p class="hero-subtext">
+                    Empowering visionaries, fostering breakthrough research, and shaping global leaders through cutting-edge technology and world-class education.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#courses" class="btn-primary">
+                        <i class="fa-solid fa-compass"></i> Explore Courses
+                    </a>
+                    <button class="btn-secondary" onclick="openDrawer()">
+                        <i class="fa-solid fa-right-to-bracket"></i> Access Student Portal
+                    </button>
+                    <a href="#about" class="btn-glass">
+                        <i class="fa-solid fa-play"></i> Campus Tour
+                    </a>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="hero-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">15,000+</h3>
+                            <p class="stat-label">Active Students</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">98.4%</h3>
+                            <p class="stat-label">Placement Rate</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">50+</h3>
+                            <p class="stat-label">Global Programs</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="stat-info">
+                            <h3 class="stat-number">Rank #1</h3>
+                            <p class="stat-label">Emerging Tech Campus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <span class="section-tag">WHO WE ARE</span>
+                <h2>About <span class="glow-text">Aurora University</span></h2>
+                <p>Discover our commitment to academic excellence, innovation, and holistic student development.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="glass-card about-card">
+                    <div class="card-icon-header">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver world-class, industry-aligned education that equips students with critical thinking, ethical leadership, and technological expertise to address global challenges.</p>
+                </div>
+
+                <div class="glass-card about-card featured">
+                    <div class="card-icon-header">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be globally recognized as a premier center of higher learning, interdisciplinary research, and entrepreneurial innovation, transforming lives and communities.</p>
+                </div>
+
+                <div class="glass-card about-card">
+                    <div class="card-icon-header">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3>Core Pillars</h3>
+                    <p>Built on the fundamentals of hands-on experiential learning, cutting-edge AI labs, global university partnerships, and comprehensive career mentoring.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="history-section">
+            <div class="section-header">
+                <span class="section-tag">OUR JOURNEY</span>
+                <h2>History of <span class="glow-text">Aurora University</span></h2>
+                <p>A legacy built over decades of dedication to expanding knowledge and empowering generation after generation.</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-year"><i class="fa-regular fa-calendar"></i> 1999</span>
+                        <h3>Foundation & Inception</h3>
+                        <p>Aurora College was founded with a pioneering vision to fulfill the growing demand for top-tier technical and professional education in the region.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-year"><i class="fa-regular fa-calendar"></i> 2008</span>
+                        <h3>Academic Expansion</h3>
+                        <p>Expanded academic faculties to include Engineering, Data Science, Commerce, Management, and Fine Arts with state-of-the-art infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-year"><i class="fa-regular fa-calendar"></i> 2017</span>
+                        <h3>Research & Innovation Hub</h3>
+                        <p>Established specialized AI and Cyber Security research centers, attracting top faculty and national research grants across multidisciplinary fields.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content glass-card">
+                        <span class="timeline-year"><i class="fa-regular fa-calendar"></i> Present Day</span>
+                        <h3>Global Recognition</h3>
+                        <p>Achieved university status with strategic international collaborations, corporate tie-ups, and a network of 40,000+ successful global alumni.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="courses-section">
+            <div class="section-header">
+                <span class="section-tag">ACADEMICS</span>
+                <h2>Explore <span class="glow-text">Degree Programs</span></h2>
+                <p>Industry-oriented undergraduate and postgraduate programs designed for future-ready careers.</p>
+            </div>
+
+            <!-- Course Filters -->
+            <div class="course-filters">
+                <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn" data-filter="engineering">Engineering & Tech</button>
+                <button class="filter-btn" data-filter="sciences">Sciences & AI</button>
+                <button class="filter-btn" data-filter="management">Management & Finance</button>
+                <button class="filter-btn" data-filter="design">Arts & Design</button>
+            </div>
+
+            <!-- Course Cards Grid -->
+            <div class="course-grid">
+                <div class="glass-card course-card" data-category="engineering">
+                    <div class="course-badge">B.Tech</div>
+                    <div class="course-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Computer Science & Engineering</h3>
+                    <p class="course-desc">Specializations in AI, Machine Learning, Data Science, Full-Stack Development & Cyber Security.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="glass-card course-card" data-category="sciences">
+                    <div class="course-badge">B.Sc</div>
+                    <div class="course-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Data Science & AI Intelligence</h3>
+                    <p class="course-desc">Hands-on practical curriculum covering neural networks, big data analytics, and computational modeling.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="glass-card course-card" data-category="management">
+                    <div class="course-badge">BBA</div>
+                    <div class="course-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Business Analytics & Leadership</h3>
+                    <p class="course-desc">Strategic decision making, corporate finance, market analytics, and startup incubator access.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="glass-card course-card" data-category="management">
+                    <div class="course-badge">B.Com / B.Fin</div>
+                    <div class="course-icon"><i class="fa-solid fa-coins"></i></div>
+                    <h3>Fintech & Banking Taxation</h3>
+                    <p class="course-desc">Modern financial technologies, blockchain systems, international accounting, and tax compliance.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="glass-card course-card" data-category="design">
+                    <div class="course-badge">BFA</div>
+                    <div class="course-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3>Gaming Tech & Fashion Design</h3>
+                    <p class="course-desc">3D animation, game engine architecture, fashion tech, digital illustration, and VFX graphics.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="glass-card course-card" data-category="engineering">
+                    <div class="course-badge">B.Arch</div>
+                    <div class="course-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3>Architecture & Urban Planning</h3>
+                    <p class="course-desc">Sustainable building designs, smart city architecture, landscape planning, and CAD modeling studio.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Years</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Full Time</span>
+                    </div>
+                    <button class="btn-course-apply" onclick="openDrawer()">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Life & Features Section -->
+        <section id="campus" class="campus-section">
+            <div class="section-header">
+                <span class="section-tag">LIFE AT AURORA</span>
+                <h2>Why Choose <span class="glow-text">Aurora</span></h2>
+                <p>An inspiring campus environment designed for creation, collaboration, and growth.</p>
+            </div>
+
+            <div class="campus-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>Advanced Research Labs</h3>
+                    <p>Supercomputing nodes, IoT prototyping labs, and robotics design studios open 24/7 for students.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3>Global Student Exchange</h3>
+                    <p>Study abroad opportunities with over 40+ partner universities across North America, Europe, and Asia.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>360° Placement Hub</h3>
+                    <p>Dedicated career coaching, resume workshops, mock interviews, and recruitment drives with Fortune 500 companies.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>Vibrant Campus Culture</h3>
+                    <p>Annual tech fests, cultural carnivals, esports leagues, hackathons, and over 30 active student clubs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2>Connect with <span class="glow-text">Admissions Desk</span></h2>
+                <p>Have questions? Reach out to our campus team or schedule a personalized campus tour.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="glass-card contact-info-card">
+                    <h3>Contact Information</h3>
+                    <p class="contact-subtext">Our admissions officers are here to help you every step of the way.</p>
+
+                    <div class="contact-item">
+                        <div class="item-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4>Campus Location</h4>
+                            <p>Aurora University Campus, University Road, Academic Hub - 500001</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="item-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4>Admissions Helpline</h4>
+                            <p>+1 (800) 123-4567 / +91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="item-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                        <div>
+                            <h4>Official Email</h4>
+                            <p>admissions@aurora.edu.in | info@aurora.edu.in</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="item-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div>
+                            <h4>Official Web Portal</h4>
+                            <p><a href="https://aurora.edu.in/" target="_blank" rel="noopener">aurora.edu.in</a></p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Glass Contact Form -->
+                <div class="glass-card contact-form-card">
+                    <h3>Send Us an Inquiry</h3>
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your inquiry! Our team will contact you shortly.'); this.reset();">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="c-name">Full Name</label>
+                                <input type="text" id="c-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="c-email">Email Address</label>
+                                <input type="email" id="c-email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="c-phone">Phone Number</label>
+                                <input type="tel" id="c-phone" placeholder="+1 (555) 000-0000" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="c-program">Program of Interest</label>
+                                <select id="c-program" required>
+                                    <option value="" disabled selected>Select a program</option>
+                                    <option value="engineering">B.Tech Engineering</option>
+                                    <option value="data-science">B.Sc Data Science & AI</option>
+                                    <option value="management">BBA Business Analytics</option>
+                                    <option value="commerce">B.Com / B.Fin</option>
+                                    <option value="arts">BFA Fine Arts & Gaming</option>
+                                    <option value="arch">B.Arch Architecture</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="c-message">Your Message</label>
+                            <textarea id="c-message" rows="4" placeholder="Tell us about your educational background and queries..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-block">
+                            <span>Submit Application Inquiry</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Aurora College. All Rights Reserved.</p>
+    <footer class="glass-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="logo-text">Aurora <span class="logo-accent">University</span></span>
+                </a>
+                <p>Leading the next generation of academic innovation, scientific research, and empowering global talent.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Aurora</a></li>
+                    <li><a href="#history">Our History</a></li>
+                    <li><a href="#courses">All Courses</a></li>
+                    <li><a href="#contact">Admissions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Student Resources</h4>
+                <ul>
+                    <li><a href="#" onclick="openDrawer()">Student Portal</a></li>
+                    <li><a href="#" onclick="openDrawer()">Faculty Login</a></li>
+                    <li><a href="#courses">Academic Calendar</a></li>
+                    <li><a href="#campus">Library Portal</a></li>
+                    <li><a href="#contact">Exam Cell</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to receive university news, research updates, and admission alerts.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Aurora Newsletter!'); this.reset();">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Aurora University. All Rights Reserved. Designed with Glassmorphism.</p>
+            <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
     </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Drawer toggle logic
+        const loginDrawer = document.getElementById('login-drawer');
+        const drawerBackdrop = document.getElementById('drawer-backdrop');
+        const openLoginBtn = document.getElementById('open-login-btn');
+        const closeLoginBtn = document.getElementById('close-login-btn');
+
+        function openDrawer() {
+            loginDrawer.classList.add('open');
+            drawerBackdrop.classList.add('open');
+            loginDrawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            loginDrawer.classList.remove('open');
+            drawerBackdrop.classList.remove('open');
+            loginDrawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if(openLoginBtn) openLoginBtn.addEventListener('click', openDrawer);
+        if(closeLoginBtn) closeLoginBtn.addEventListener('click', closeDrawer);
+        if(drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+        // Role tab switching in drawer
+        const tabBtns = document.querySelectorAll('.login-tabs .tab-btn');
+        const roleBadge = document.getElementById('role-badge');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const role = btn.getAttribute('data-tab');
+                const roleFormatted = role.charAt(0).toUpperCase() + role.slice(1);
+                if (roleBadge) {
+                    roleBadge.innerHTML = `<span class="pulse-dot"></span> Active Session: ${roleFormatted} Portal`;
+                }
+            });
+        });
+
+        // Toggle password visibility
+        const togglePwBtn = document.getElementById('toggle-pw-btn');
+        const pwInput = document.getElementById('user-password');
+        if(togglePwBtn && pwInput) {
+            togglePwBtn.addEventListener('click', () => {
+                const isPw = pwInput.type === 'password';
+                pwInput.type = isPw ? 'text' : 'password';
+                togglePwBtn.innerHTML = isPw ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+            });
+        }
+
+        // Course filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const courseCards = document.querySelectorAll('.course-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                courseCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 200);
+                    }
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+        if(mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+            });
+        }
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        if(backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
 </body>
 </html>
